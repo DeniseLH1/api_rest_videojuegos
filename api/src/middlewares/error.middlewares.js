@@ -4,6 +4,6 @@ export function rutaNoEncontrada (res,req){
 
 export function manejarError(error,req,res,next){
     console.error("[Api Error",error);
-    const status =error.statusCode error.status 5000;
-    res.status(status).json({errormessage"Error interno"})
+    const status =error.statusCode || error.status || 5000;
+    res.status(status).json({error: errormessage ||"Error interno"})
 }
