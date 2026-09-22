@@ -22,8 +22,8 @@ export async function listarJuegos(req,res,next) {
         if(req.query.plataforma)filtro.plataforma=req.query.plataforma.toLowerCase();
         if(req.query.genero)filtro.genero=req.query.genero.toLowerCase();
 
-        const juegos = await juegoService.listarJuegos(filtro);
-        req.json({data: juegos})
+        const juegos = await juegoService.listar(filtro);
+        res.json({ data: juegos });
     }catch(error){next(error)}
     
 }
