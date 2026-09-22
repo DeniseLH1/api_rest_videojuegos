@@ -1,0 +1,16 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Api para videojuejos NodeJS ExpressJS",
+  "keywords": [
+    "NodeJS",
+    "ExpressJS"
+  ],
+  "license": "ISC",
+  "author": "DeniseLH1",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
