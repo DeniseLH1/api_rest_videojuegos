@@ -28,3 +28,7 @@ export const validarActualizarJuego=[
     body("completado").optional().isBoolean().withMessage("El campo completado debe ser un valor booleano"),
 ]
 
+export const validarJuegoId=[
+    param("id").isMongoId().withMessage("El id del videojuego no es un ObjectId de MongoDB válido"),
+    responderErrores,
+];
