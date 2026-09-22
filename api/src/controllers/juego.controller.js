@@ -13,9 +13,7 @@ export async function crearJuego(req,res,next){
         });
 
         res.status(201).json({data:juego});
-    }catch(error){
-        next(error);
-    }
+    }catch(error){next(error);}
 }
 
 export async function listarJuegos(req,res,next) {
@@ -32,7 +30,7 @@ export async function listarJuegos(req,res,next) {
 
 export async function obtenerJuego(req,res,next) {
     try{
-        const juego=await juegoService.buscarPorId(req.params.id);
+        const juego = await juegoService.buscarPorId(req.params.id);
         if(!juego) return res.status(404).json({error:"Videojuego no encontrado"});
         res.json({data:juego});
     }catch(error){next(error)}
