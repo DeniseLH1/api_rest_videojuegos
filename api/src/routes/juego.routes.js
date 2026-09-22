@@ -8,3 +8,4 @@ juegoRouter.post("/",validarCrearJuego,crearJuego)
 juegoRouter.get("/",listarJuegos)
 juegoRouter.get("/:id",validarJuegoId,obtenerJuego);
 juegoRouter.patch("/:id",validarJuegoId,validarActualizarJuego,actualizarJuego)
+juegoRouter.delete("/:id", validarJuegoId, eliminarJuego);
