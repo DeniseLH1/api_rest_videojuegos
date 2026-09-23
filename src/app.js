@@ -1,6 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import{juegoRouter} from './routes/juego.routes.js';
+import { generoRouter } from "./routes/genero.routes.js";
 import {manejarError,rutaNoEncontrada} from './middlewares/error.middlewares.js';
 
 const API_VERSION = "1.0.0"
@@ -24,6 +25,7 @@ app.get("/api/v1/preferencia",(req,res)=>{
 });
 
 app.use("/api/v1/juegos", juegoRouter); 
+app.use("/api/v1/generos", generoRouter);
 
 app.use(rutaNoEncontrada);
 app.use(manejarError);

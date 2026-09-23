@@ -1,9 +1,20 @@
 import {CrearJuegoDTO,ActualizarJuegoDTO} from "../dto/juegos.dto.js";
 import {juegoService}from "../services/juego.service.js"
+import { generoService } from "../services/genero.service.js";
 
 export async function crearJuego(req,res,next){
     try{
         const datos = new CrearJuegoDTO(req.body);
+        const reglaGenero = await generoService.obtenerPorNombre(datos.genero);
+        
+        if (reglaGenero) {
+            if (datos.horasJugadas < reglaGenero.horasMinimas) {
+                return res.status(400).json({
+                    error: `No se puede registrar el juego. El género '${datos.genero}' requiere un mínimo de ${reglaGenero.horasMinimas} horas jugadas.`
+                });
+            }
+        }
+        
         const juego =  await juegoService.crear(datos);
 
         res.cookie("ultimaPlataforma",juego.plataforma,{
